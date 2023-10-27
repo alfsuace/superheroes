@@ -5,4 +5,4 @@ import com.alfsuace.superheroes.app.ErrorApp
 
 interface SuperHeroRepository {
     suspend fun obtainAll(): Either<ErrorApp, List<SuperHero>>
-}
+   }

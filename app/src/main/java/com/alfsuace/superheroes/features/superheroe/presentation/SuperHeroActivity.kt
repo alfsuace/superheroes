@@ -19,7 +19,7 @@ class SuperHeroActivity : AppCompatActivity() {
     val viewModel: SuperHeroViewModel by lazy {
         SuperHeroViewModel(
             GetSuperHeroUseCase(
-                SuperHeroDataRepository(
+                SuperheroDataRepository(
                     SuperHeroLocalDataSource(this, GsonSerialization()),
                     ApiSuperHeroDataSource()
                 )
