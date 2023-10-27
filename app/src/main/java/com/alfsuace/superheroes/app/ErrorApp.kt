@@ -1,4 +1,4 @@
-package com.alfsuace.ejerciciovistas.app
+package com.alfsuace.superheroes.app
 
 sealed class ErrorApp {
     object UnknowErrorApp : ErrorApp()

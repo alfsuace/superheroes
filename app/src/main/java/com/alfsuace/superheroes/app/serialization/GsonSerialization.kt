@@ -1,4 +1,4 @@
-package com.alfsuace.ejerciciovistas.app.serialization
+package com.alfsuace.superheroes.app.serialization
 
 import com.google.gson.Gson
 

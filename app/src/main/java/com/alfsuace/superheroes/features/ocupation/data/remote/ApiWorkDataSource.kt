@@ -1,13 +1,10 @@
 package com.alfsuace.superheroes.features.ocupation.data.remote
 
-import com.alfsuace.ejerciciovistas.app.Either
-import com.alfsuace.ejerciciovistas.app.ErrorApp
-import com.alfsuace.ejerciciovistas.app.left
-import com.alfsuace.ejerciciovistas.app.right
-import com.alfsuace.superheroes.features.superheroe.data.remote.SuperHeroApiModel
-import com.alfsuace.superheroes.features.superheroe.data.remote.SuperHeroesApiService
+import com.alfsuace.superheroes.app.Either
+import com.alfsuace.superheroes.app.ErrorApp
+import com.alfsuace.superheroes.app.left
+import com.alfsuace.superheroes.app.right
 import com.alfsuace.superheroes.features.superheroe.data.remote.toModel
-import com.alfsuace.superheroes.features.superheroe.domain.SuperHero
 import com.alfsuace.superheroes.features.superheroe.domain.Work
 import retrofit2.Response
 import retrofit2.Retrofit

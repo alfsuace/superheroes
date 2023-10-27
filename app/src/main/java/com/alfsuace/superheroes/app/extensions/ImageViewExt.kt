@@ -1,4 +1,4 @@
-package com.alfsuace.ejerciciovistas.app.extensions
+package com.alfsuace.superheroes.app.extensions
 
 import android.widget.ImageView
 import com.alfsuace.superheroes.R
