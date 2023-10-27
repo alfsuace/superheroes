@@ -5,7 +5,7 @@ import com.alfsuace.superheroes.app.ErrorApp
 import kotlinx.coroutines.CoroutineDispatcher
 
 class GetSuperHeroUseCase(private val repository: SuperHeroRepository) {
-    operator fun invoke(io: CoroutineDispatcher): Either<ErrorApp, SuperHero> {
-        return repository.obtain()
+    suspend operator fun invoke(io: CoroutineDispatcher): Either<ErrorApp, List<SuperHero>> {
+        return repository.obtainAll()
     }
 }
