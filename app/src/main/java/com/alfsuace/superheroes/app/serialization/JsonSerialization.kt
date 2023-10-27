@@ -1,4 +1,4 @@
-package com.alfsuace.ejerciciovistas.app.serialization
+package com.alfsuace.superheroes.app.serialization
 
 interface JsonSerialization {
     fun <T>toJson(obj: T, typeClass: Class<T>): String
