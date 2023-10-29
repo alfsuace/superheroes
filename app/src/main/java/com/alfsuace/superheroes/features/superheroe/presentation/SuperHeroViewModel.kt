@@ -3,10 +3,12 @@ package com.alfsuace.superheroes.features.superheroe.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.alfsuace.superheroes.app.ErrorApp
 import com.alfsuace.superheroes.features.superheroe.domain.GetSuperHeroUseCase
 import com.alfsuace.superheroes.features.superheroe.domain.SuperHero
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SuperHeroViewModel(
     private val getSuperHeroUseCase: GetSuperHeroUseCase
@@ -15,14 +17,16 @@ class SuperHeroViewModel(
     val uiState: LiveData<UiState> = _uiState
 
     fun loadSuperHero() {
-        getSuperHeroUseCase(Dispatchers.IO).fold(
-            { responseError(it) },
-            { responseGetSuperHeroSuccess(it) }
-        )
+        viewModelScope.launch(Dispatchers.IO) {
+            getSuperHeroUseCase.invoke().fold(
+                { responseError(it) },
+                { responseGetSuperHeroSuccess(it) }
+            )
+        }
     }
 
-    private fun responseGetSuperHeroSuccess(it: SuperHero) {
-        _uiState.postValue(UiState(superHero = it))
+    private fun responseGetSuperHeroSuccess(it: List<GetSuperHeroUseCase.Person>) {
+        _uiState.postValue(UiState(person = it))
     }
 
     private fun responseError(it: ErrorApp) {
@@ -32,7 +36,7 @@ class SuperHeroViewModel(
     data class UiState(
         val errorApp: ErrorApp? = null,
         val isLoading: Boolean = false,
-        val superHero: SuperHero? = null
+        val person: List<GetSuperHeroUseCase.Person>? = null
     )
 
 }

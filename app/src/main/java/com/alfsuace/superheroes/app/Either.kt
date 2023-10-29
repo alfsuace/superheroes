@@ -1,5 +1,8 @@
 package com.alfsuace.superheroes.app
 
+import com.alfsuace.superheroes.features.superheroe.domain.GetSuperHeroUseCase
+import com.alfsuace.superheroes.features.superheroe.domain.SuperHero
+
 sealed class Either<out L, out R> {
 
     data class Left<out T>(val value: T) : Either<T, Nothing>() {
@@ -23,7 +26,7 @@ sealed class Either<out L, out R> {
         is Right -> right(value)
     }
 
-    inline fun <C> map(f: (R) -> C): Either<L, C> = fold(
+    inline fun <C> map(f: (List<SuperHero>) -> List<GetSuperHeroUseCase.Person>): Either<L, C> = fold(
         { Left(it) },
         { Right(f(it)) }
     )
