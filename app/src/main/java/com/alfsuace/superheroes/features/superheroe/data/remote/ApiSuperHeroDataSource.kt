@@ -24,7 +24,7 @@ class ApiSuperHeroDataSource {
 
         val service: SuperHeroesApiService = retrofit.create(SuperHeroesApiService::class.java)
 
-        suspend fun findAllSuperHeroes(): Either<ErrorApp, List<SuperHero>> {
+        suspend fun getAllSuperHeroes(): Either<ErrorApp, List<SuperHero>> {
             try {
                 val response: Response<List<SuperHeroApiModel>> = service.getSuperHeroes()
                 return if (response.isSuccessful) {

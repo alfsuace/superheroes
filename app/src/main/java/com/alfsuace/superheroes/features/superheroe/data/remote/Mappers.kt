@@ -14,11 +14,13 @@ fun SuperHeroApiModel.toModel(): SuperHero =
     )
 fun WorkApiModel.toModel(id: String): Work=
     Work(
+        this.id,
         this.occupation
     )
 
 fun BiographyApiModel.toModel(id: String): Biography=
     Biography(
+        this.id,
         this.description
     )
 

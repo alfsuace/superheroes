@@ -8,9 +8,11 @@ data class SuperHero(
 )
 
 data class Work(
+    val id: String,
     val occupation: String
 )
 
 data class Biography(
+    val id: String,
     val description: String
 )
